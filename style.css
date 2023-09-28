@@ -1,0 +1,223 @@
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* GENERALS */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --light-black: 	#36393e;
+    --dark: #1e2124;
+    --semi-light-blue:#7289da;
+    --light-blue: #8b9dc3;
+    --dark-blue: #3b5998;
+    --grey: #dfe3ee;
+    --white: #f7f7f7;
+    --red: #8b1010;
+}
+
+body{
+    background-color: var(--light-black);
+}
+
+html{
+    font-size: 62.5%;
+}
+
+/* HEADER */
+header{
+    width: 100%;
+    background-color: var(--dark-blue);
+    text-align: center;
+    height: 8rem;
+    line-height: 8rem;
+}
+.headerTitle{
+    font-size: 3rem;
+    color: var(--white);
+    letter-spacing: .2rem;
+}
+
+/* FORM */
+.form-zone{
+    text-align: center;
+    margin: 3rem 0;
+    display: flex;
+    justify-content: center;
+}
+.form-zone input, .form-zone button, .modal input, .modal button{
+    outline: none;
+    font-size: 1.6rem;
+    padding: 1rem 1rem;
+    border: none;
+}
+.form-zone input, .modal input{
+    min-width: 35rem;
+    border-radius: .5rem 0 0 .5rem;
+}
+.form-zone button, .modal button{
+    padding: 1rem 2.5rem;
+    text-transform: uppercase;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 0 .5rem .5rem 0;
+    transition: .5s;
+}
+.form-zone button:hover, .modal button:hover{
+    background-color: var(--semi-light-blue);
+}
+
+/* MAIN */
+.container{
+    position: relative;
+    padding: 0 5% 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    align-items: start;
+    gap: 2rem;
+}
+.dropzones{
+    background-color: var(--dark-blue);
+    padding: 1rem;
+    border-radius: .5rem;
+}
+.dropzones-header{
+    display: flex;
+    justify-content: space-between;
+}
+.dropzones-header h3{
+    font-size: 2rem;
+    color: var(--white);
+}
+.dropzones-header h3 i{
+    color: var(--white);
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: .5s;
+}
+.dropzones-header h3 i:hover{
+    color: var(--red);
+}
+.dropzones:first-child .dropzones-header h3 i:hover{
+    opacity: 0.7;
+    color: var(--white);
+}
+.dropzones-items{
+    min-height: 20rem;
+    height: 20rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: auto;
+    overflow-y: scroll;
+}
+.dropzones-items__item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--semi-light-blue);
+    padding: 1rem;
+}
+.dropzones-items__item:hover{
+    cursor: move;
+}
+.dropzones-items__item p, 
+.dropzones-items__item span i{
+    font-size: 1.6rem;
+    color: var(--white);
+    transition: .5s;
+}
+.dropzones-items__item span i:hover{
+    color: var(--red);
+    cursor: pointer;
+}
+.dragging{
+    background-color: var(--dark);
+}
+.fieldDragging{
+    border: 2px dashed var(--dark);
+}
+
+/* MODAL */
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.9);
+    height: 100vh;
+    width: 100%;
+    transition: .5s;
+    clip-path: inset(0 0 100% 0);
+}
+.modal.active{
+    clip-path: inset(0 0 0 0);
+}
+.modal span i{
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    color: var(--white);
+    font-size: 5rem;
+    cursor: pointer;
+    transition: .5s;
+}
+.modal span i:hover{
+    opacity: 0.7;
+}
+
+/* ERROR */
+.error{
+    margin: 3rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2%;
+    background-color: var(--red);
+    color: var(--white);
+    display: none;
+}
+.error h3{
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+}
+#closeError{
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+@media(max-width: 490px){
+    .form-zone, .modal{
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    .form-zone input, .form-zone button, .modal input, .modal button{
+        width: 95%;
+        border-radius: .5rem;
+    }
+    .form-zone input, .modal input{
+        min-width: auto;
+    }    
+    .error{
+        margin: 3rem 2%;
+    }
+}
+@media(max-width: 320px){
+    .headerTitle{
+        font-size: 2.5rem;
+    }
+    .container{
+        grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    }
+}
