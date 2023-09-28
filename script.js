@@ -37,11 +37,7 @@ buttonModal.addEventListener('click', () => {
 
     dropzonesItemsItem.addEventListener('dragstart', dragstart);
     dropzonesItemsItem.addEventListener('dragend', dragend);
-
-    dropzonesItemsItem.addEventListener('touchstart', dragstart);
-    dropzonesItemsItem.addEventListener('touchmove', dragstart);
-    dropzonesItemsItem.addEventListener('touchend', dragend);
-
+    
     dropzonesitemsItemI.addEventListener('click', () => {
         dropzonesItemsItem.remove();
     });
